@@ -9,7 +9,7 @@ HTMLHint.addRule({
         var self = this;
         parser.addListener('text', function(event){
             var raw = event.raw,
-                reSpecChar = /[<>]/g,
+                reSpecChar = /([<>])|( \& )/g,
                 match;
             while((match = reSpecChar.exec(raw))){
                 var fixedPos = parser.fixPos(event, match.index);
